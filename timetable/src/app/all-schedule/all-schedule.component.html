@@ -1,0 +1,20 @@
+<div class="mainContainer">
+  <h1>Get All Schedules And Courses</h1>
+  <hr>
+  <div class="table-container">
+    <table class="response-table">
+      <thead>
+        <tr>
+          <th>Schedule Name</th>
+          <th>Number of Courses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of courses.responseData; let i = index">
+          <td>{{item.scheduleName}}</td>
+          <td>{{item.NumberOfCourses}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

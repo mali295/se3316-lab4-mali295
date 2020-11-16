@@ -1,0 +1,28 @@
+<div class="mainContainer">
+  <h1>Create Schedule</h1>
+  <hr/>
+  <div *ngIf="creatingSchedule">
+    <input class="input-field" [(ngModel)]="schedule"
+      name="scheduleName" type="text" style="width: 300px" placeholder="Enter Schedule Name"/>
+    <button (click)="createSchedule()"
+    class="primary-btn remove-padding input-btn">Createntere Schedule</button>
+    <div class="error-div" *ngIf="error != ''">
+      <h2>{{error}}</h2>
+    </div>
+  </div> 
+
+  <div class="table-container" *ngIf="!creatingSchedule">
+    <table class="response-table">
+      <thead>
+        <tr> 
+          <th>Schedule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of scheduless">
+          <td>{{schedule.scheduleName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

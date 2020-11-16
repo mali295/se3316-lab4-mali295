@@ -1,0 +1,30 @@
+<div class="mainContainer">
+  <h1>Get Subject and Course Code</h1>
+  <hr/>
+
+  <div *ngIf="searching">
+    <input [(ngModel)]="scheduleName" class="input-field" id="scheduleName" type="text" style="width: 400px" placeholder="Enter Schedule Name"/>
+    <button (click)="findSubCourseList()" class="primary-btn remove-padding input-btn">Get List of Subject and Course Codes </button>
+    
+    <div class="error-div" *ngIf="error != ''">
+      <h2>{{error}}</h2>
+    </div>
+  </div>
+  
+  <div class="table-container" *ngIf="!searching">
+    <table class="response-table">
+      <thead>
+        <tr>
+          <th>Subject Code</th>
+          <th>Course Code Pairs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{res.scheduleName}}</td>
+          <td><span *ngFor="let item of res.responseData">{{item.subject}} </span> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>   
+</div>

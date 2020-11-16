@@ -1,0 +1,39 @@
+<div class="mainContainer">
+  <h1>Save Schedule Details</h1>
+  <hr/>
+   <div *ngIf="creatingSchedule">
+     
+    <div style="margin: 0 auto;max-width: 800px">
+      <input [(ngModel)]="schedule.scheduleName" class="input-field" id="scheduleName" name="scheduleName" type="text" placeholder="Enter Schedule Name"/>
+      <input [(ngModel)]="schedule.subject" class="input-field" id="subject" name="subject" type="text" style="margin-left: 5px" placeholder="Enter Subject Code"/>
+      <input [(ngModel)]="schedule.catalog_nbr" class="input-field" id="catalog_nbr" name="catalog_nbr" type="text" placeholder="Enter Course Code"/>
+    </div><br>
+    <button (click)="saveRecord()"
+      class="primary-btn remove-padding input-btn" style="margin-right: 80px">Create Schedule</button>
+    <div class="error-div" *ngIf="error != ''">
+      <h2>{{error}}</h2>
+    </div>
+    
+   </div>
+
+  <div class="table-container" *ngIf="!creatingSchedule">
+    <table class="response-table">
+      <thead>
+        <tr> 
+          <th>Subject Code</th>
+          <th>Course Code Pairs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resList">
+          <td><span *ngFor="let item2 of item.responseData" ></span> {{item2.subject}}</td>
+          <td><span *ngFor="let item2 of item.responseData" ></span>{{item2.catalog_nbr}}</td>
+        </tr>
+        <tr *ngFor="let item of resobj.responseData">
+          <td>{{item.subject}}</td>
+          <td>{{item.catalog_nbr}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="mainContainer">
+  <h1>Get Subject And Decriptions</h1>
+  <hr>
+  <div class="table-container">
+    <table class="response-table">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of subjects; let i = index">
+          <td>{{item.subject}}</td>
+          <td>{{item.className}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

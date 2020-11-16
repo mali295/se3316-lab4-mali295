@@ -1,0 +1,13 @@
+<div class="mainContainer">
+  <h1>Delete All Schedules</h1>
+  <hr>
+  <div>
+    
+    <button (click)="deleteAllSchedule()" *ngIf="!isSuccess"
+    class="primary-btn remove-padding input-btn">Delete All Schedules</button>
+    
+    <div class="success-div" *ngIf="isSuccess">
+      <h2>All Schedules Deleted Successfully!</h2>
+    </div>
+  </div>
+  </div>

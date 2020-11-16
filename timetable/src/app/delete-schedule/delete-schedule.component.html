@@ -1,0 +1,33 @@
+<div class="mainContainer">
+  <h1>Delete Schedule</h1>
+  <hr>
+  <div *ngIf="searching">
+    <input class="input-field" [(ngModel)]="scheduleName"
+    type="text" type="text" placeholder="Enter Schedule Name" style="width: 300px">
+    <button (click)="deleteSchedule()"
+    class="primary-btn remove-padding input-btn" style="height: 40px">Delete Schedule</button>
+    
+    <div class="error-div" *ngIf="error != ''">
+      <h2>{{error}}</h2>
+    </div>
+    <div class="success-div" *ngIf="isSuccess">    
+      <h3>Deleted Schedule Successfully!</h3>
+    </div>
+  </div>
+  
+
+  <div class="table-container" *ngIf="!searching">
+    <table class="response-table">
+      <thead>
+        <tr>
+          <th>Schedules</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of schedules.responseData">
+          <td>{{item.scheduleName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>    
+</div>
